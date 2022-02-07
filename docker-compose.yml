@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  study-keplr-example:
+    container_name: study-keplr-example
+    image: study-keplr-example:local-dev
+    build:
+      context: .
+    ports:
+      - 9050:80
+    volumes:
+      - ./application:/var/www/html
+    networks:
+      - study-keplr-example
+
+networks:
+  study-keplr-example:
+    name: study-keplr-example
+    driver: bridge
